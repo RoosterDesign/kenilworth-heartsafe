@@ -1,0 +1,24 @@
+.menu-list {
+  padding: var(--block-padding) 0;
+
+  @media only screen and (min-width: 500px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: inc_to_rem(3);
+  }
+
+  @include mq(tablet) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include mq(tablet-lg) {
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: inc_to_rem(4);
+  }
+
+  @include mq(desktop) {
+    grid-gap: inc_to_rem(5);
+  }
+
+
+}

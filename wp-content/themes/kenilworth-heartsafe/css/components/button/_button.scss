@@ -1,0 +1,75 @@
+.btn,
+html div.wpforms-container-full button[type=submit] {
+  align-self: flex-start;
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--fs--base);
+  font-weight: var(--fw--700);
+  justify-content: center;  
+  line-height: 1.2;  
+  text-decoration: none;
+  
+
+  &:after {    
+    background-repeat: no-repeat;
+    content: '';
+    display: block;
+    flex-shrink: 0;
+    height: 12px;
+    margin-left: 10px;
+    width: 13px;
+  }
+
+}
+
+.btn--primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-colour);
+  height: 60px;
+  letter-spacing: 1px;
+  padding: 10px 30px;
+  text-transform: uppercase;
+
+  &:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%23F7F9F9' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--btn-primary-hover-bg);
+    color: var(--btn-primary-hover-colour);
+  }
+
+}
+
+.btn--secondary {
+  color: var(--btn-secondary-colour);
+
+  &:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%23EE2F2F' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
+  }  
+
+  &:hover,
+  &:active {
+    color: var(--btn-secondary-hover-colour);
+
+    &:after {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%232C2C2C' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
+    }
+
+  }
+
+}
+
+
+
+.btn--alt:hover {
+  background-color: var(--white);
+  color: var(--darkGrey);
+
+  &:after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%232C2C2C' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
+    color: var(--darkGrey);
+  }
+
+}

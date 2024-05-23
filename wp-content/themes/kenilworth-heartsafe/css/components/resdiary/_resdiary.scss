@@ -1,0 +1,39 @@
+.resdiary-wrap {
+  padding-top: inc_to_rem(2);
+
+  @include mq(tablet) {
+    padding-top: inc_to_rem(5);
+  }
+
+  @include mq(desktop) {
+    padding-top: 0;
+    margin-bottom: inc_to_rem(5);
+  }
+
+  .container {
+    @include mq(desktop) {
+      align-items: flex-end;
+    }
+  }
+  
+  .resdiary {
+    background: var(--white);
+    box-shadow: var(--panel-box-shadow);
+    height: var(--resdiary-height);
+    margin: 0 auto;
+    width: 100%;
+
+    @include mq(desktop) {
+      padding: 0;
+      position: absolute;
+      max-width: 450px;
+      top: -525px;
+    }
+
+    @include mq(desktop-lg) {
+      max-width: 550px;
+    }    
+
+  }
+
+}

@@ -1,0 +1,162 @@
+
+//== Responsive Breakpoints
+
+$breakpoints: (mobile-lg: 375px,
+    mobile-xlg: 414px,
+    tablet: 768px,
+    tablet-lg: 992px,
+    // desktop: 1366px,
+    desktop: 1280px,
+    desktop-md: 1441px,
+    desktop-lg: 1920px,
+    full: 2560px);
+
+@mixin mq($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (min-width: $breakpoint-value) {
+            @content;
+        }
+    }
+    @else {
+        @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
+}
+
+@mixin laptop-mq() {
+    @media only screen and (min-width: 1280px) and (max-height: 1024px) {
+        @content;
+    }
+}
+
+
+//== Basic UL List
+
+@mixin basicList() {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+//== Text Link Formatting
+
+@mixin textLink($colour: var(--text-link-colour), $hoverColour: var(--text-link-hover-colour)) {
+    border-bottom: 2px solid $colour;
+    color: $colour;
+    font-weight: var(--fw--700);
+    text-decoration: none;
+    
+    &:hover {
+        border-bottom-color: $hoverColour;
+        color: $hoverColour;
+    }
+}
+
+
+//== Image mask
+
+@mixin mask($bg: rgba(65,45,35,.65)) {
+    background: $bg;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+
+//== Small Panel
+
+@mixin smallPanel($hasPadding: true ) {
+    background: var(--card--bg);
+    color: var(--font-colour);
+    box-shadow: var(--card--box-shadow);
+    overflow: hidden;
+
+    @if $hasPadding {
+        padding: var(--card--padding);
+    }
+
+}
+
+
+//== Unit to px
+
+$base-unit: 8;
+@function inc_to_rem($increment) {
+    @return 0rem + ($increment * $base-unit) / 10;
+}
+
+
+
+//== Block Title
+
+@mixin blockTitle() {
+    color: var(--heading-colour);
+    font-size: inc_to_rem(3);
+    font-weight: var(--fw--700);
+    line-height: inc_to_rem(5);
+    margin-bottom: inc_to_rem(2);
+
+    @include mq(tablet-lg) {
+      font-size: inc_to_rem(4);
+      margin-bottom: inc_to_rem(3);
+    }
+
+    @include mq(desktop) {
+      font-size: inc_to_rem(5);
+      margin-bottom: inc_to_rem(5);
+    }
+}
+
+//== Block Intro
+
+@mixin blockIntro() {
+    font-size: inc_to_rem(2);
+    line-height: inc_to_rem(3);
+    margin: 0 auto inc_to_rem(4);
+    
+    @include mq(tablet) {
+        line-height: inc_to_rem(4);
+        margin-bottom: inc_to_rem(4);
+    }
+
+    @include mq(tablet-lg) {
+        max-width: 800px;
+    }
+
+    @include mq(desktop) {
+      font-size: inc_to_rem(3);
+      line-height: inc_to_rem(5);
+      margin-bottom: inc_to_rem(6);
+      max-width: 970px;
+    }
+
+    a:not([href^="tel:"]) { @include textLink; }
+    
+}
+
+
+//== Fade In Text
+
+@mixin fadeInUpText($delay: 0) {
+    animation-delay: $delay;
+    animation-fill-mode: forwards;
+    animation-duration: 2s;
+    animation-name: fadeInUpText;
+
+    @keyframes fadeInUpText {
+        from {
+            opacity: 0;
+            bottom: -30px;
+        }
+        to {
+            opacity: 1;
+            bottom: 0;
+        }
+      }
+
+}

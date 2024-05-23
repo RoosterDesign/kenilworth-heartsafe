@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: inc_to_rem(6);
+
+  @include mq(desktop) {
+    margin-top: inc_to_rem(10);
+  }
+
+  &__link {
+
+    a {
+      @include textLink;
+      font-size: inc_to_rem(2);
+    }
+
+  }
+  
+}

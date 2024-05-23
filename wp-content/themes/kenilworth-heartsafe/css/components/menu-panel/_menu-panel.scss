@@ -1,0 +1,73 @@
+.menu-panel {
+  background-color: var(--darkGrey);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+  position: relative;
+  padding: var(--block-padding) 0;
+  
+  @include mq(tablet) {
+    background-attachment: fixed;
+    min-height: 500px;
+  }
+
+  @include mq(desktop) {
+    min-height: 800px;
+  }
+
+  @include mq(desktop-md) {
+    min-height: 1000px;
+  }
+
+  &--has-mask:after { @include mask; }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include mq(tablet) {
+      width: 375px;
+    }
+
+    @include mq(tablet-lg) {
+      width: 500px;
+    }
+
+    @include mq(desktop) {
+      width: 650px;
+    }
+
+  }
+
+  &__title {
+    @include blockTitle;
+  }
+
+  &__body {
+    font-size: inc_to_rem(2);
+    line-height: inc_to_rem(3);
+    margin-bottom: inc_to_rem(3);
+
+    @include mq(tablet) {
+      margin-bottom: inc_to_rem(4);
+    }
+
+    @include mq(desktop) {
+      font-size: inc_to_rem(3);
+      line-height: inc_to_rem(5);
+      margin-bottom: inc_to_rem(5);
+    }
+
+  }
+
+  .btn {
+    margin-right: auto;
+
+    @include mq(tablet) {
+      align-self: flex-start;
+    }
+
+  }
+
+}

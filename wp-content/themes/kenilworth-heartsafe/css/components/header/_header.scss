@@ -1,0 +1,126 @@
+.site-header {
+  align-items: center;
+  background-color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  height: var(--header-height);
+  left: 0;
+  min-height: var(--header-height);
+  padding: 0 var(--header-padding);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+
+  @include mq(tablet-lg) {
+    align-items: center;
+    background: var(--header-bg);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);    
+    flex-direction: row;
+  }
+  
+  &__logo {
+    height: auto;
+    width: 60px;
+
+    @include mq(tablet-lg) {
+      width: 100px;
+    }
+
+  }
+
+  &__donate {
+    align-self: stretch;
+    margin: auto var(--nav-padding) var(--nav-padding);
+    // padding: inc_to_rem(2) inc_to_rem(3);
+    
+    @include mq(tablet-lg) {
+      margin: 0;
+      // padding: 15px 25px;
+    }
+
+  }
+
+}
+
+@keyframes slideInNav {
+  from {
+    top: calc(var(--header-height) * -1);
+  }
+  to {
+    background: var(--header-bg);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 0;
+  }
+}
+
+
+//== Burger Menu
+
+.burger {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 25px;  
+  position: relative;
+
+  @include mq(tablet-lg) {
+    display: none;
+  }
+
+  span {
+    background: var(--black);
+    border-radius: 2px;    
+    height: 3px;    
+    width: 40px;
+
+    @include mq(tablet-lg) {
+      background: var(--nav-link-colour);
+    }
+
+    &:before,
+    &:after {
+      background: var(--black);
+      border-radius: 2px;
+      content: '';
+      display: block;
+      height: 3px;
+      position: absolute;
+      width: 40px;
+
+      @include mq(tablet-lg) {
+        background: var(--nav-link-colour);
+        
+      }
+
+    }
+
+    &:before { top: 0; }
+
+    &:after { bottom: 0; }
+
+  }
+
+}
+
+body.home .burger {
+
+  span,
+  span:before,
+  span:after {
+    background: var(--black);
+  }
+
+}
+
+
+
+.site-header--sticky .burger span,
+.site-header--sticky .burger span:before,
+.site-header--sticky .burger span:after,
+body.home .site-header--sticky .burger span,
+body.home .site-header--sticky .burger span:before,
+body.home .site-header--sticky .burger span:after {
+  background: var(--nav-link-colour);
+}

@@ -1,0 +1,66 @@
+.hero {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--white);
+  display: flex;
+  height: var(--hero-height);
+  padding-top: var(--header-height);
+  position: relative;
+  text-align: center;
+
+  .container {    
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    z-index: 2;
+  }
+
+  &__btn {
+    margin: 30px auto 0;
+
+    @include mq(tablet) {
+      
+      
+    }
+
+    @include mq(desktop) {
+      margin-top: 60px;      
+    }
+
+  }
+
+  &__bg {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    &:after {
+      background: var(--darkGrey);
+      content: '';
+      height: 100%;
+      left: 0;
+      opacity: .65;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    &-img {
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+    }
+
+    .owl-stage-outer,
+    .owl-stage,
+    .owl-item {
+      height: 100%;
+    }
+
+  }
+  
+}

@@ -1,0 +1,21 @@
+.full-width-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  height: 300px;
+
+  @include mq(tablet) {
+    background-attachment: fixed;
+    height: 500px;
+  }
+
+  @include mq(desktop) {
+    height: 800px;
+  }
+
+  @include mq(desktop-md) {
+    height: 800px;
+  }
+
+}

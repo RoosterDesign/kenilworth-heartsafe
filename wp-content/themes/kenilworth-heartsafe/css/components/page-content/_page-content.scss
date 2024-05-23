@@ -1,0 +1,79 @@
+.page-content {
+  
+  @include mq(tablet) {
+    @include smallPanel(false);
+    padding: inc_to_rem(4) inc_to_rem(5);
+  }
+
+  @include mq(desktop) {
+    padding: inc_to_rem(6) inc_to_rem(7);
+  }
+
+  @include mq(full) {
+    padding: inc_to_rem(8) inc_to_rem(9);
+  }
+
+  + .page-content {
+    margin-top: inc_to_rem(4);
+
+    @include mq(tablet) {
+      margin-top: inc_to_rem(6);
+    }
+
+    @include mq(desktop) {
+      margin-top: inc_to_rem(8);
+    }
+
+  }
+  
+  p, li, th, td {
+    // font-size: var(--fs--base);
+    // line-height: var(--lh--base);
+    // margin: 0 0 20px;
+
+    &:last-child { margin-bottom:  0; }
+
+    a:not([href^="tel:"]) { @include textLink; }
+
+  }
+
+  p + h1,
+  p + h2,
+  p + h3,
+  p + h4,
+  p + h5,
+  p + h6 {
+    // margin-top: 20px;
+  }
+
+
+  ol, ul {
+    margin: 0;
+    padding: 0;
+    
+    li { margin: 0; }
+  
+  }
+
+  // .table {
+  //   max-width: 100%;
+  //   overflow: auto;
+  // }
+  
+  // table {
+  //   border-collapse: collapse;
+  //   border-spacing: 0;
+  //   width: 100%;
+  
+  //   tr {
+  //       padding: 0;
+  //   }
+  
+  //   td {
+  //       border: 1px solid #ccc;
+  //       padding: 20px;
+  //   }
+    
+  // }
+
+}

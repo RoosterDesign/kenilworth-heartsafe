@@ -1,0 +1,12 @@
+.map {  
+  height: 500px;
+
+  @include mq(desktop) {
+    height: 700px;
+  }
+
+  @include mq(desktop-lg) {
+    height: 900px;
+  }
+
+}

@@ -1,0 +1,26 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+
+  @include mq(tablet-lg) {
+    flex-wrap: nowrap;
+  }
+
+  &__img {
+    display: flex;
+    flex-basis: 50%;
+
+    @include mq(tablet-lg) {
+      aspect-ratio: 1 / 1;
+      flex: 1;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+
+  }
+
+}
