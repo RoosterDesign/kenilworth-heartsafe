@@ -1,7 +1,11 @@
 .btn,
+html .wpforms-submit,
 html div.wpforms-container-full button[type=submit] {
   align-self: flex-start;
   align-items: center;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
   display: inline-flex;
   font-size: var(--fs--base);
   font-weight: var(--fw--700);
@@ -9,19 +13,21 @@ html div.wpforms-container-full button[type=submit] {
   line-height: 1.2;  
   text-decoration: none;
   
-
   &:after {    
     background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
     content: '';
     display: block;
     flex-shrink: 0;
-    height: 12px;
     margin-left: 10px;
+    height: 12px;
     width: 13px;
   }
 
 }
 
+html body div.wpforms-container-full button[type=submit].btn,
 .btn--primary {
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-colour);
@@ -42,6 +48,36 @@ html div.wpforms-container-full button[type=submit] {
 
 }
 
+html body div.wpforms-container-full button[type=submit]:active,
+html body div.wpforms-container-full button[type=submit]:hover {
+  background-color: var(--btn-primary-hover-bg) !important;
+  color: var(--btn-primary-hover-colour) !important;
+}
+
+html body div.wpforms-container-full button[type=submit]:focus:after {
+  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%23F7F9F9' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
+
+  // background-repeat: no-repeat;
+  // background-position: 0 0;
+  // background-size: cover;
+  // content: '';
+  // display: block;
+  // flex-shrink: 0;
+  // margin-left: 10px;    
+  // height: 12px;
+  // width: 13px;
+  
+  border: none;
+  border-radius: 0;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+    
+}
+
+
 .btn--secondary {
   color: var(--btn-secondary-colour);
 
@@ -59,6 +95,45 @@ html div.wpforms-container-full button[type=submit] {
 
   }
 
+}
+
+.btn--back {
+  color: var(--white);
+
+  span {
+    border-bottom: 2px solid transparent;
+  }
+
+  &:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17' height='14' fill='none'%3E%3Cpath stroke='%23ffffff' stroke-linecap='square' stroke-width='2' d='M6.941 12 2 7m0 0 4.941-5M2 7h14'/%3E%3C/svg%3E");    
+    background-repeat: no-repeat;
+    background-position: 0 -1px;
+    background-size: cover;
+    content: '';
+    display: block;
+    flex-shrink: 0;
+    margin-right: 10px;
+    height: 11px;    
+    width: 14px;
+  }
+
+  &:after {
+    display: none;
+  }
+
+  &:hover span {
+    border-bottom-color: var(--white);
+  }
+
+}
+
+.btn--no-icon {
+
+  &:before,
+  &:after {
+    display: none;
+  }
+  
 }
 
 

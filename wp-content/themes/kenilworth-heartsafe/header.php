@@ -12,8 +12,8 @@
 <body <?php body_class(); ?>>
 <header class="site-header">
 
-  <a href="/" title="Friends of Abbey Fields">
-    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Friends of Abbey Fields" width="100" height="100" class="site-header__logo" />
+  <a href="/" title="Kenilworth Heartsafe">
+    <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Kenilworth Heartsafe" width="100" height="100" class="site-header__logo" />
   </a>
 
   <span class="burger js-open-nav"><span></span></span>

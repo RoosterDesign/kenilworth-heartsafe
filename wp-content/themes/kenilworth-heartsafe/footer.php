@@ -2,8 +2,8 @@
   <div class="container">
     <div class="site-footer__col site-footer__col--first">
 
-      <a href="/" title="Friends of Abbey Fields" class="site-footer__logo">
-        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Friends of Abbey Fields" width="100" height="100" />
+      <a href="/" title="Kenilworth Heartsafe" class="site-footer__logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="Kenilworth Heartsafe" width="100" height="100" />
       </a>
 
       <?php if(get_option('footer_text')) : ?>
@@ -41,19 +41,23 @@
 
       <?php if(get_option('address')) : ?>
         <p>
+          <strong>Address</strong><br/>
           <?php echo get_option('address'); ?>
         </p>
       <?php endif; ?>
 
       <p>
         <?php if(get_option('tel_number')) : ?>
-          <strong>Tel: </strong>
+          <strong>Tel</strong><br/>
           <?php echo get_option('tel_number'); ?>
           <br />
-        <?php endif; ?>        
+        <?php endif; ?>      
+      </p>
+
+      <p>
         <?php if(get_option('email_address')) : ?>
-          <strong>Email: </strong>
-          <a href="mailto:<?php echo get_option('email_address'); ?>?subject=Website Enquiry" target="_blank" title="Email Friends of Abbey Fields"><?php echo get_option('email_address'); ?></a>        
+          <strong>Email</strong><br/>
+          <a href="mailto:<?php echo get_option('email_address'); ?>?subject=Website Enquiry" target="_blank" title="Email Kenilworth Heartsafe"><?php echo get_option('email_address'); ?></a>        
         <?php endif; ?>
       </p>
       

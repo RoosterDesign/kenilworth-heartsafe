@@ -7,7 +7,7 @@
     <picture class="square-image">
       <source srcset="<?php echo $desktopImage; ?>" media="(min-width: 2000px)" >  
       <source srcset="<?php echo $tabletImage; ?>" media="(min-width: 768px)" >
-      <img src="<?php echo $mobileImage; ?>" alt="Friends of Abbey Fields" />
+      <img src="<?php echo $mobileImage; ?>" alt="Kenilworth Heartsafe" />
     </picture>
   </div>
 </div>

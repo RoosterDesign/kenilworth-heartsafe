@@ -5,11 +5,11 @@
   background-size: cover;
   color: var(--white);
   height: var(--masthead-height);
-  padding-bottom: inc_to_rem(3);
+  padding-bottom: 20px;
   position: relative;
 
-  @include mq(tablet) {
-    padding-bottom: inc_to_rem(4);
+  @include mq(desktop) {
+    padding-bottom: 30px;
   }
 
   &:after { @include mask; }
@@ -17,59 +17,50 @@
   .container {
     justify-content: flex-end;
     height: 100%;
-  }
 
-  + .container {
-    padding-block: inc_to_rem(4);
-
-    @include mq(tablet) {
-      padding-block: inc_to_rem(6);
-    }
-
-    @include mq(desktop) {
-      padding-block: inc_to_rem(8);
+    @include mq(desktop) {    
+      align-items: flex-end;
+      flex-direction: row;
+      justify-content: space-between;
     }
     
   }
 
-  &__title {
-    font-size: inc_to_rem(5);
-    font-weight: var(--fw--700);
-    line-height: inc_to_rem(6);
-
-    @include mq(tablet-lg) {
-      font-size: inc_to_rem(6);
-      line-height: inc_to_rem(7);
+  h1 {
+    @include mq(desktop-lg) {
+      font-size: 50px;
     }
+    @include mq(full) {
+      font-size: 58px;
+    }
+  }
+
+  &__back {
+    margin-top: 10px;
 
     @include mq(desktop) {
-      font-size: inc_to_rem(8);
-      line-height: inc_to_rem(9);
+      align-self: flex-end;      
+      margin-top: 0;
+      margin-bottom: 15px;
     }
 
-    @include mq(desktop-lg) {
-      font-size: inc_to_rem(9);
-      line-height: inc_to_rem(10);
-      // margin-bottom: inc_to_rem(2);
+    @include mq(desktop-md) {
+      margin-bottom: 20px;
     }
 
   }
 
-  &__body {
-    font-size: inc_to_rem(2);
-    line-height: inc_to_rem(3);
+  // + .container {
+  //   padding-block: 30px;
 
-    @include mq(tablet-lg) {
-      font-size: inc_to_rem(3);
-      line-height: inc_to_rem(4);
-    }
+  //   @include mq(tablet) {
+  //     padding-block: 50px;
+  //   }
 
-    @include mq(desktop) {
-      line-height: inc_to_rem(5);
-    }
-
-    a:not([href^="tel:"]) { @include textLink(var(--white)); }
-
-  }  
+  //   @include mq(desktop) {
+  //     padding-block: 130px;
+  //   }
+    
+  // }
   
 }

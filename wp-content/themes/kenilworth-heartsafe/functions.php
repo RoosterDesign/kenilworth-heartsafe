@@ -73,10 +73,31 @@ function kh_scripts() {
 	}
 
 
+
+	//== Defibrillator Details Page
+
+	if ( is_singular( 'defibrillators' ) ) {
+		wp_enqueue_script('kh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA&libraries=places', array(), '', true);
+		wp_enqueue_script( 'kh-defibrillator', get_template_directory_uri() . '/js/defibrillator-details.js', array('kh-jquery'), _S_VERSION, true );
+	}
+
+
+	//== Google Map
+	if ( is_page_template( 'templates/homepage.php' )  ) {
+		wp_enqueue_script('kh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA&libraries=places', array(), '', true);
+		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-home-map.js', array('kh-google-maps'), _S_VERSION, true );
+	}
+
+
 	//== Contact Page Scripts
-	// if ( is_page_template( 'templates/contact.php' ) ) {
-	// 	wp_enqueue_script( 'kh-homepage', get_template_directory_uri() . '/js/contact.js', array(), _S_VERSION, true );
-	// }
+	if ( is_page_template( 'templates/defibrillators.php' ) ) {
+
+		wp_enqueue_script('kh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA&libraries=places', array(), '', true);
+
+		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-locations-map.js', array('kh-google-maps'), _S_VERSION, true );
+
+		// wp_enqueue_script( 'kh-homepage', get_template_directory_uri() . '/js/contact.js', array(), _S_VERSION, true );
+	}
 
 }
 
@@ -116,55 +137,134 @@ function is_paginated() {
 
 //== Custom Post Types
 
-/* 
 function create_posttype() {
   	
-	add_theme_support('post-thumbnails');
-	add_post_type_support( 'activities', 'thumbnail' );
+	// add_theme_support('post-thumbnails');
+	// add_post_type_support( 'defibrillators', 'thumbnail' );
+	// add_post_type_support( 'people', 'thumbnail' );
 
-	register_post_type(
-		'activities',
-			array(
-					'labels' => array(
-							'name' => __( 'Activities' ),
-							'singular_name' => __( 'Activity' )
-					),
-					'public' => true,
-					'has_archive' => false,
-					'rewrite' => array('slug' => 'activities', 'with_front' => false),
-					'hierarchical' => false,
-					'show_in_rest' => true,
-					'menu_icon'   => 'dashicons-calendar',
-					'menu_position' => 6
-			)
+
+	//== Defibrillator Post Type
+
+	$defibrillatorsLabels = array(
+		'name'                  => _x('Defibrillators', 'Post type general name', 'kenilworth-heartsafe'),
+		'singular_name'         => _x('Defibrillator', 'Post type singular name', 'kenilworth-heartsafe'),
+		'menu_name'             => _x('Defibrillators', 'Admin Menu text', 'kenilworth-heartsafe'),
+		'name_admin_bar'        => _x('Defibrillator', 'Add New on Toolbar', 'kenilworth-heartsafe'),
+		'add_new'               => __('Add New Defibrillator', 'kenilworth-heartsafe'),
+		'add_new_item'          => __('Add New Defibrillator', 'kenilworth-heartsafe'),
+		'new_item'              => __('New Defibrillator', 'kenilworth-heartsafe'),
+		'edit_item'             => __('Edit Defibrillator', 'kenilworth-heartsafe'),
+		'view_item'             => __('View Defibrillator', 'kenilworth-heartsafe'),
+		'all_items'             => __('All Defibrillators', 'kenilworth-heartsafe'),
+		'search_items'          => __('Search Defibrillators', 'kenilworth-heartsafe'),
+		'parent_item_colon'     => __('Parent Defibrillators:', 'kenilworth-heartsafe'),
+		'not_found'             => __('No defibrillators found.', 'kenilworth-heartsafe'),
+		'not_found_in_trash'    => __('No defibrillators found in Trash.', 'kenilworth-heartsafe'),
+		'featured_image'        => _x('Defibrillator Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'set_featured_image'    => _x('Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'remove_featured_image' => _x('Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'use_featured_image'    => _x('Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'archives'              => _x('Defibrillator archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'kenilworth-heartsafe'),
+		'insert_into_item'      => _x('Insert into defibrillator', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'uploaded_to_this_item' => _x('Uploaded to this defibrillator', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'filter_items_list'     => _x('Filter defibrillators list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list_navigation' => _x('Defibrillators list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list'            => _x('Defibrillators list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'kenilworth-heartsafe'),
 	);
 
-	register_taxonomy('activities_category', 'activities', array('hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true));
+	$defibrillatorsArgs = array(
+		'labels'             => $defibrillatorsLabels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array('slug' => 'defibrillators', 'with_front' => false),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'menu_icon'   			 => 'dashicons-heart',
+		'hierarchical'       => false,
+		'menu_position'      => 5,
+		'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+	);
+
+	register_post_type('defibrillators', $defibrillatorsArgs);
+
+
+	//== People Post Type
+
+	$peopleLabels = array(
+		'name'                  => _x('People', 'Post type general name', 'kenilworth-heartsafe'),
+		'singular_name'         => _x('Person', 'Post type singular name', 'kenilworth-heartsafe'),
+		'menu_name'             => _x('People', 'Admin Menu text', 'kenilworth-heartsafe'),
+		'name_admin_bar'        => _x('Person', 'Add New on Toolbar', 'kenilworth-heartsafe'),
+		'add_new'               => __('Add New Person', 'kenilworth-heartsafe'),
+		'add_new_item'          => __('Add New Person', 'kenilworth-heartsafe'),
+		'new_item'              => __('New Person', 'kenilworth-heartsafe'),
+		'edit_item'             => __('Edit Person', 'kenilworth-heartsafe'),
+		'view_item'             => __('View Person', 'kenilworth-heartsafe'),
+		'all_items'             => __('All People', 'kenilworth-heartsafe'),
+		'search_items'          => __('Search People', 'kenilworth-heartsafe'),
+		'parent_item_colon'     => __('Parent People:', 'kenilworth-heartsafe'),
+		'not_found'             => __('No people found.', 'kenilworth-heartsafe'),
+		'not_found_in_trash'    => __('No people found in Trash.', 'kenilworth-heartsafe'),
+		'featured_image'        => _x('Person Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'set_featured_image'    => _x('Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'remove_featured_image' => _x('Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'use_featured_image'    => _x('Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'archives'              => _x('Person archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'kenilworth-heartsafe'),
+		'insert_into_item'      => _x('Insert into person', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'uploaded_to_this_item' => _x('Uploaded to this person', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'filter_items_list'     => _x('Filter people list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list_navigation' => _x('People list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list'            => _x('People list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+	);
+
+	$peopleArgs = array(
+		'labels'             => $peopleLabels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array('slug' => 'person', 'with_front' => false),		
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'menu_icon'   			 => 'dashicons-admin-users',
+		'hierarchical'       => false,
+		'menu_position'      => 6,
+		'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
+	);
+
+	register_post_type('people', $peopleArgs);
+
+	// register_taxonomy('defibrillators_category', 'defibrillators', array('hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true));
 
 };
 add_action( 'init', 'create_posttype' );
-*/
 
 
-/*
+
+//== Active menu class
 function change_page_menu_classes($menu)
 {
   	
-		// $ACTIVITIES_MENU_ID = 2133;// LOCAL
-		 $ACTIVITIES_MENU_ID = 2250; // STAGE
-		// $ACTIVITIES_MENU_ID = ####; // PROD  
+		$DEFIBRILLATORS_MENU_ID = 18;// LOCAL
+		//  $DEFIBRILLATORS_MENU_ID = 2250; // STAGE
+		// $DEFIBRILLATORS_MENU_ID = ####; // PROD  
 	
 		global $post;
 
-    if (get_post_type($post) == 'activities')
+    if (get_post_type($post) == 'defibrillators')
     {
         $menu = str_replace( 'current_page_parent', '', $menu ); // remove all current_page_parent classes
-        $menu = str_replace( 'menu-item-'.$ACTIVITIES_MENU_ID, 'menu-item-'.$ACTIVITIES_MENU_ID.' current-menu-item', $menu ); // add the current_page_parent class to the page you want
+        $menu = str_replace( 'menu-item-'.$DEFIBRILLATORS_MENU_ID, 'menu-item-'.$DEFIBRILLATORS_MENU_ID.' current-menu-item', $menu ); // add the current_page_parent class to the page you want
     }
     return $menu;
 }
 add_filter( 'nav_menu_css_class', 'change_page_menu_classes', 10,2 );
-*/
+
 
 
 //== Remove Default Image Sizes
@@ -189,6 +289,8 @@ add_theme_support( 'post-thumbnails' );
 	
 if ( function_exists( 'add_theme_support' ) ) {	
 	
+	add_image_size( 'people-photo', 340, 340, true );
+	
 	add_image_size( 'fw-img-mobile', 600, 600, true );
 	add_image_size( 'fw-img-tablet', 1024, 1024, true );
 	add_image_size( 'fw-img-desktop', 1920, 1920, true );
@@ -198,6 +300,15 @@ if ( function_exists( 'add_theme_support' ) ) {
 }
 
 
+
+
+//== ACF Google Maps
+
+function my_acf_google_map_api( $api ){
+	$api['key'] = 'AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA';
+	return $api;
+}
+add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
 
 
 

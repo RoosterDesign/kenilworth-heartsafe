@@ -18,11 +18,14 @@
     gap: 40px;
 
     @include mq(tablet-lg) {
+      gap: 60px 40px;
       grid-template-columns: repeat(3, 1fr);
     }
 
     @include mq(desktop) {
-      grid-template-columns: repeat(4, 1fr);
+      // grid-template-columns: repeat(4, 1fr);
+      gap: 100px 80px;
+      grid-template-columns: 1fr 250px 1fr 1fr;
     }
 
   }
@@ -124,7 +127,14 @@
 .site-footer-links {
   @include basicList;
 
-  .menu-item { }
+  .menu-item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+  }
 
   .current-menu-item,
   .current_page_parent {
@@ -145,10 +155,10 @@
     
     li {
 
-      @include mq(tablet) {
+      // @include mq(tablet) {
         display: inline-block;
         margin-right: 20px;
-      }
+      // }
 
     }
 
@@ -165,14 +175,15 @@
 
   @include mq(tablet-lg) {
     grid-column: 1 / 4;
-    grid-row: 3 / 4;
+    grid-row: 3 / 4;    
   }
 
   @include mq(desktop) {
     grid-column: 1 / 5;
+    grid-row: 2 / 3;
     grid-template-columns: auto auto;    
     justify-content: space-between;
-    margin-top: 50px;
+    // margin-top: 120px;
   }
 
 }

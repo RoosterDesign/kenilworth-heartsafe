@@ -2,38 +2,57 @@
   
   @include mq(tablet) {
     @include smallPanel(false);
-    padding: inc_to_rem(4) inc_to_rem(5);
+    padding: 40px;
   }
 
   @include mq(desktop) {
-    padding: inc_to_rem(6) inc_to_rem(7);
+    padding: 80px;
   }
 
   @include mq(full) {
-    padding: inc_to_rem(8) inc_to_rem(9);
+    
   }
 
   + .page-content {
-    margin-top: inc_to_rem(4);
+    // margin-top: inc_to_rem(4);
 
     @include mq(tablet) {
-      margin-top: inc_to_rem(6);
+      // margin-top: inc_to_rem(6);
     }
 
     @include mq(desktop) {
-      margin-top: inc_to_rem(8);
+      // margin-top: inc_to_rem(8);
     }
 
   }
   
   p, li, th, td {
-    // font-size: var(--fs--base);
-    // line-height: var(--lh--base);
-    // margin: 0 0 20px;
 
     &:last-child { margin-bottom:  0; }
 
-    a:not([href^="tel:"]) { @include textLink; }
+    a:not([href^="tel:"]) {
+      @include textLink;
+      word-wrap: break-word;
+    }
+
+  }
+
+  p {
+    margin-bottom: 20px;
+
+    @include mq(desktop) {
+      line-height: 2;
+      margin-bottom: 30px;
+    }
+
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 10px;
+
+    @include mq(desktop) {
+      margin-bottom: 20px;
+    }
 
   }
 
@@ -42,17 +61,55 @@
   p + h3,
   p + h4,
   p + h5,
-  p + h6 {
-    // margin-top: 20px;
+  p + h6,
+  ul + h1,
+  ul + h2,
+  ul + h3,
+  ul + h4,
+  ul + h5,
+  ul + h6,
+  ol + h1,
+  ol + h2,
+  ol + h3,
+  ol + h4,
+  ol + h5,
+  ol + h6  {
+    margin-top: 40px;
+
+    @include mq(desktop) {
+      margin-top: 60px;
+    }
+
   }
 
 
   ol, ul {
-    margin: 0;
-    padding: 0;
-    
-    li { margin: 0; }
+    margin: 0 0 20px 40px;
+    padding: 0;  
+
+    li {
+      margin-bottom: 5px;
+    }
+
+  }
+
+  .video-container {
+    margin-bottom: 30px;
+    padding-bottom: 56.25%;
+    position: relative;    
+
+    @include mq(desktop) {
+      margin-bottom: 60px;
+    }
+
+  }
   
+  .video-container iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;    
+    width: 100%;
   }
 
   // .table {

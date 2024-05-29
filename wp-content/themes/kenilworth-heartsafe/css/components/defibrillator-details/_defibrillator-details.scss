@@ -1,0 +1,73 @@
+.defibrillator-details {
+  display: grid;
+  gap: 40px;
+
+  @include mq(tablet) {
+    grid-template-columns: 1fr 250px;
+  }
+
+  @include mq(tablet-lg) {
+    grid-auto-rows: auto;
+    align-items: flex-start;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 300px;
+  }
+
+  @include mq(desktop) {
+    grid-template-columns: 1fr 340px;
+  }
+
+  &__image {
+    height: auto;
+    width: 100%;
+
+    @include mq(tablet) {
+      height: 100%;
+    }
+
+    @include mq(tablet-lg) {
+      height: auto;
+    }
+
+    @include mq(tablet-lg) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+  }
+
+  &__address {
+
+    @include mq(tablet) {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+    }
+
+    @include mq(tablet-lg) {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+  }
+
+  &__map {
+    box-shadow: var(--card--box-shadow);
+    height: 600px;
+    width: 100%;
+
+    @include mq(tablet) {
+      grid-column: 1 / 3;
+    }
+
+    @include mq(tablet-lg) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+  
+    img {
+      max-width: inherit !important;
+    }
+
+  }
+
+}

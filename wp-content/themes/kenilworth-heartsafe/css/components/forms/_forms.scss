@@ -1,4 +1,32 @@
 html {  
+
+  .form {
+
+    &__input {
+      background-color: var(--form--input-bg-colour);
+      border: 1px solid var(--form--input-border-colour);
+      font-size: var(--fs--base);
+      height: 60px;
+      padding: 0 20px;
+      width: 100%;
+
+      @include mq(desktop) {
+        padding: 0 25px;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        border-color: var(--form--input-hover-border-colour);
+      }
+
+      &::placeholder {
+        color: var(--form--placeholder-colour);
+      }
+
+    }
+
+  }
   
   .wpforms-container {
     margin: 0 !important;
