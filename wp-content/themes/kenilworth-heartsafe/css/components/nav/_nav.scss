@@ -26,11 +26,11 @@
     flex-basis: auto;
     flex-direction: row-reverse;
     margin-top: 0;
-    padding-left: inc_to_rem(5);
+    padding-left: 40px;
   }
 
   @include mq(desktop-lg) {
-    padding-left: inc_to_rem(10);
+    padding-left: 80px;
   }
 
   &__close {
@@ -84,29 +84,24 @@
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
-    gap: inc_to_rem(3);
-    margin: 0 inc_to_rem(4) 0 0;
+    gap: 24px;
+    margin: 0 32px 0 0;
     order: 1;
     padding: 0;   
   }
 
   @include mq(desktop) {
-    gap: inc_to_rem(4);
-    margin-right: inc_to_rem(5);
+    gap: 32px;
+    margin-right: 40px;
   }
 
   @include mq(desktop-lg) {
-    gap: inc_to_rem(6);
-    margin-right: inc_to_rem(7);
+    gap: 48px;
+    margin-right: 56px;
   }
 
   .menu-item {
-    font-size: inc_to_rem(2);
-
-    @include mq(desktop) {
-      font-size: 18px;
-    }
-
+    font-size: var(--fs--base);
   }
 
   .current-menu-item,

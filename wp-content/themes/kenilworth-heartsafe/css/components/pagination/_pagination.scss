@@ -1,17 +1,17 @@
 .pagination {
   display: flex;
   justify-content: space-between;
-  margin-top: inc_to_rem(6);
+  margin-top: 48px;
 
   @include mq(desktop) {
-    margin-top: inc_to_rem(10);
+    margin-top: 80px;
   }
 
   &__link {
 
     a {
       @include textLink;
-      font-size: inc_to_rem(2);
+      font-size: var(--fw--base);
     }
 
   }

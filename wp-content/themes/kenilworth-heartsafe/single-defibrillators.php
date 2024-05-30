@@ -9,9 +9,7 @@
 
         <div class="defibrillator-details">
 
-          <!-- if image -->
-          <img src="https://picsum.photos/340/190" alt="" class="defibrillator-details__image" />
-          <!-- end if -->
+          <?php if ( has_post_thumbnail() ) { the_post_thumbnail( 'defibrillator-location', array('class' => 'defibrillator-details__image') ); } ?>
 
           <div class="defibrillator-details__map" data-zoom="16">
             <div class="marker" data-lat="<?php echo esc_attr($location['lat']); ?>" data-lng="<?php echo esc_attr($location['lng']); ?>"></div>

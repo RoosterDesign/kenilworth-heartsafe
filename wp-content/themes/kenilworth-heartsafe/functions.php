@@ -144,6 +144,56 @@ function create_posttype() {
 	// add_post_type_support( 'people', 'thumbnail' );
 
 
+	//== Hero Slider Images
+
+	$heroSliderLabels = array(
+		'name'                  => _x('Hero Slider', 'Post type general name', 'kenilworth-heartsafe'),
+		'singular_name'         => _x('Hero Slide', 'Post type singular name', 'kenilworth-heartsafe'),
+		'menu_name'             => _x('Hero Slider', 'Admin Menu text', 'kenilworth-heartsafe'),
+		'name_admin_bar'        => _x('Hero Slide', 'Add New on Toolbar', 'kenilworth-heartsafe'),
+		'add_new'               => __('Add New Hero Slide', 'kenilworth-heartsafe'),
+		'add_new_item'          => __('Add New Hero Slide', 'kenilworth-heartsafe'),
+		'new_item'              => __('New Hero Slide', 'kenilworth-heartsafe'),
+		'edit_item'             => __('Edit Hero Slide', 'kenilworth-heartsafe'),
+		'view_item'             => __('View Hero Slide', 'kenilworth-heartsafe'),
+		'all_items'             => __('All Hero Slider', 'kenilworth-heartsafe'),
+		'search_items'          => __('Search Hero Slider', 'kenilworth-heartsafe'),
+		'parent_item_colon'     => __('Parent Hero Slider:', 'kenilworth-heartsafe'),
+		'not_found'             => __('No Hero Slider found.', 'kenilworth-heartsafe'),
+		'not_found_in_trash'    => __('No Hero Slider found in Trash.', 'kenilworth-heartsafe'),
+		'featured_image'        => _x('Hero Slide Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'set_featured_image'    => _x('Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'remove_featured_image' => _x('Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'use_featured_image'    => _x('Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'archives'              => _x('Hero Slide archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'kenilworth-heartsafe'),
+		'insert_into_item'      => _x('Insert into Hero Slide', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'uploaded_to_this_item' => _x('Uploaded to this Hero Slide', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'filter_items_list'     => _x('Filter Hero Slider list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list_navigation' => _x('Hero Slider list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list'            => _x('Hero Slider list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+	);
+
+	$heroSliderArgs = array(
+		'labels'             => $heroSliderLabels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array('slug' => 'hero-slide', 'with_front' => false),
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'menu_icon'   			 => 'dashicons-format-gallery',
+		'hierarchical'       => false,
+		'menu_position'      => 4,
+		'supports'           => array('title', 'thumbnail'),
+	);
+
+	register_post_type('hero-slider', $heroSliderArgs);
+	
+	
+	
+	
 	//== Defibrillator Post Type
 
 	$defibrillatorsLabels = array(
@@ -239,6 +289,54 @@ function create_posttype() {
 
 	register_post_type('people', $peopleArgs);
 
+
+	//== Supporters Post Type
+
+	$supporterLabels = array(
+		'name'                  => _x('Supporters', 'Post type general name', 'kenilworth-heartsafe'),
+		'singular_name'         => _x('Supporter', 'Post type singular name', 'kenilworth-heartsafe'),
+		'menu_name'             => _x('Supporters', 'Admin Menu text', 'kenilworth-heartsafe'),
+		'name_admin_bar'        => _x('Supporter', 'Add New on Toolbar', 'kenilworth-heartsafe'),
+		'add_new'               => __('Add New Supporter', 'kenilworth-heartsafe'),
+		'add_new_item'          => __('Add New Supporter', 'kenilworth-heartsafe'),
+		'new_item'              => __('New Supporter', 'kenilworth-heartsafe'),
+		'edit_item'             => __('Edit Supporter', 'kenilworth-heartsafe'),
+		'view_item'             => __('View Supporter', 'kenilworth-heartsafe'),
+		'all_items'             => __('All Supporters', 'kenilworth-heartsafe'),
+		'search_items'          => __('Search Supporters', 'kenilworth-heartsafe'),
+		'parent_item_colon'     => __('Parent Supporters:', 'kenilworth-heartsafe'),
+		'not_found'             => __('No Supporters found.', 'kenilworth-heartsafe'),
+		'not_found_in_trash'    => __('No Supporters found in Trash.', 'kenilworth-heartsafe'),
+		'featured_image'        => _x('Supporter Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'set_featured_image'    => _x('Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'remove_featured_image' => _x('Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'use_featured_image'    => _x('Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'kenilworth-heartsafe'),
+		'archives'              => _x('Supporter archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'kenilworth-heartsafe'),
+		'insert_into_item'      => _x('Insert into Supporter', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'uploaded_to_this_item' => _x('Uploaded to this Supporter', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'kenilworth-heartsafe'),
+		'filter_items_list'     => _x('Filter Supporters list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list_navigation' => _x('Supporters list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'kenilworth-heartsafe'),
+		'items_list'            => _x('Supporters list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'kenilworth-heartsafe'),
+	);
+
+	$supporterArgs = array(
+		'labels'             => $supporterLabels,
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+		'query_var'          => true,
+		'rewrite'            => array('slug' => 'supporter', 'with_front' => false),		
+		'capability_type'    => 'post',
+		'has_archive'        => true,
+		'menu_icon'   			 => 'dashicons-tag',
+		'hierarchical'       => false,
+		'menu_position'      => 7,
+		'supports'           => array('title', 'thumbnail'),
+	);
+
+	register_post_type('supporters', $supporterArgs);
+
 	// register_taxonomy('defibrillators_category', 'defibrillators', array('hierarchical' => true, 'label' => 'Categories', 'query_var' => true, 'rewrite' => true));
 
 };
@@ -289,14 +387,22 @@ add_theme_support( 'post-thumbnails' );
 	
 if ( function_exists( 'add_theme_support' ) ) {	
 	
-	add_image_size( 'people-photo', 340, 340, true );
+	add_image_size( 'people-photo', 340, 340, true );	
+	add_image_size( 'supporter-logo', 160, 180 );	
+	add_image_size( 'hero-slide-mobile', 768, 500, true );
+	add_image_size( 'hero-slide-desktop', 1920, 900, true );
+	add_image_size( 'card', 480, 330, true );
+	add_image_size( 'masthead-mobile', 1024, 200, true );
+	add_image_size( 'masthead-desktop', 1920, 400, true );
+	add_image_size( 'about-panel', 1920, 600, true );
+	add_image_size( 'defibrillator-location', 610, 340, true );
 	
 	add_image_size( 'fw-img-mobile', 600, 600, true );
 	add_image_size( 'fw-img-tablet', 1024, 1024, true );
 	add_image_size( 'fw-img-desktop', 1920, 1920, true );
 	add_image_size( 'fw-img-desktop-lg', 2560, 2560, true );
-	add_image_size( 'featured-post', 1600, 9999, true );
-	add_image_size( 'card', 480, 330, true );
+	// add_image_size( 'featured-post', 1600, 9999, true );
+	
 }
 
 

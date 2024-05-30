@@ -55,26 +55,13 @@ html body div.wpforms-container-full button[type=submit]:hover {
 }
 
 html body div.wpforms-container-full button[type=submit]:focus:after {
-  // background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none'%3E%3Cpath stroke='%23F7F9F9' stroke-linecap='square' stroke-width='2' d='m4.406 1.494 7.029.042m0 0 .042 7.029m-.042-7.03-9.9 9.9'/%3E%3C/svg%3E");
-
-  // background-repeat: no-repeat;
-  // background-position: 0 0;
-  // background-size: cover;
-  // content: '';
-  // display: block;
-  // flex-shrink: 0;
-  // margin-left: 10px;    
-  // height: 12px;
-  // width: 13px;
-  
   border: none;
   border-radius: 0;
   position: relative;
   top: auto;
   left: auto;
   right: auto;
-  bottom: auto;
-    
+  bottom: auto;    
 }
 
 

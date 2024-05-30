@@ -1,23 +1,29 @@
 <!-- <section class="hero" style="background-image: url(<?php the_field('background_image'); ?>)"> -->
 <section class="hero">
   <div class="container">
+    <?php the_content(); ?>
+    <a href="/defibrillators" title="View our defibrillators" class="btn btn--primary hero__btn">View our defibrillators</a>
+  </div> 
 
-    <?php /*
-      <h1 class="hero__title"><?php the_field('title'); ?></h1>
-      <a href="<?php the_field('button_link'); ?>" title="<?php the_field('button_text'); ?>" class="btn btn--primary hero__btn"><?php the_field('button_text'); ?></a>
-    */ ?>
+  <?php $posts = get_posts(array( 'post_type' => 'hero-slider', 'nopaging' => true ));
+      if ($posts) { ?>
+        <div class="hero__bg owl-carousel">
 
-    <h1 class="hero__title">Kenilworth Heartsafe are a local Independent Charity determined to make our community a safer place for people with a life threatening heart condition.</h1>
+          <?php foreach($posts as $post): setup_postdata($post); ?>              
+  
+              <?php
+                $defaultImg = wp_get_attachment_image_url( get_post_thumbnail_id($post->ID), 'hero-slide-mobile' );
+                $largeImg = wp_get_attachment_image_url( get_post_thumbnail_id($post->ID), 'hero-slide-desktop' );
+              ?>
 
-    <a href="#" title="View our defibrillators" class="btn btn--primary hero__btn">View our defibrillators</a>
+              <picture class="hero__slide">
+                <source srcset="<?php echo $largeImg; ?>" media="(min-width: 1024px)" >
+                <img src="<?php echo $defaultImg; ?>" alt="<?php the_title(); ?>"  />
+              </picture>
 
-  </div>
+          <?php endforeach; ?>
 
-  <div class="hero__bg owl-carousel">
-    <div class="hero__bg-img" style="background-image: url('https://picsum.photos/seed/picsum/1920/900')"></div>
-    <div class="hero__bg-img" style="background-image: url('https://picsum.photos/1920/900')"></div>
-    <div class="hero__bg-img" style="background-image: url('https://picsum.photos/seed/picsum/1920/900')"></div>
-    <div class="hero__bg-img" style="background-image: url('https://picsum.photos/1920/900')"></div>
-  </div>
+        </div>
+  <?php }; wp_reset_postdata(); ?>
   
 </section>

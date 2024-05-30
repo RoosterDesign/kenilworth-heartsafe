@@ -5,8 +5,12 @@ body.page-template-defibrillators .defibrillator-map__panel {
     transform: translateY(-50%);
   }
 
-  @media only screen and (max-width: 991px) {
+  @include mq(tablet) {
     margin-top: 40px;
+  }
+
+  @include mq(tablet-lg) {
+    margin-top: 0;
   }
 
 }
@@ -32,7 +36,7 @@ body.page-template-defibrillators .defibrillator-map__panel {
     overflow: hidden;
     margin: 0 calc(-1 * var(--container-padding));
     pointer-events: all;
-    padding: 30px var(--container-padding);    
+    padding: 30px var(--container-padding);
 
     @include mq(tablet) {
       margin: 0 0 50px;
@@ -62,7 +66,7 @@ body.page-template-defibrillators .defibrillator-map__panel {
       height: 600px;
     }
 
-    @include mq(tablet-lg) {
+    @include mq(desktop) {
       height: 900px;
     }
 
@@ -76,6 +80,10 @@ body.page-template-defibrillators .defibrillator-map__panel {
     overflow: auto;
 
     @include mq(tablet-lg) {
+      max-height: 400px;
+    }
+
+    @include mq(desktop) {
       max-height: 505px;
     }
 

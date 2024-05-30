@@ -12,19 +12,6 @@
   @include mq(full) {
     
   }
-
-  + .page-content {
-    // margin-top: inc_to_rem(4);
-
-    @include mq(tablet) {
-      // margin-top: inc_to_rem(6);
-    }
-
-    @include mq(desktop) {
-      // margin-top: inc_to_rem(8);
-    }
-
-  }
   
   p, li, th, td {
 

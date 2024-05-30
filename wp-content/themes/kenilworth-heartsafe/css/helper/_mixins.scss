@@ -82,64 +82,6 @@ $breakpoints: (mobile-lg: 375px,
 
 }
 
-
-//== Unit to px
-
-$base-unit: 8;
-@function inc_to_rem($increment) {
-    @return 0rem + ($increment * $base-unit) / 10;
-}
-
-
-
-//== Block Title
-
-@mixin blockTitle() {
-    color: var(--heading-colour);
-    font-size: inc_to_rem(3);
-    font-weight: var(--fw--700);
-    line-height: inc_to_rem(5);
-    margin-bottom: inc_to_rem(2);
-
-    @include mq(tablet-lg) {
-      font-size: inc_to_rem(4);
-      margin-bottom: inc_to_rem(3);
-    }
-
-    @include mq(desktop) {
-      font-size: inc_to_rem(5);
-      margin-bottom: inc_to_rem(5);
-    }
-}
-
-//== Block Intro
-
-@mixin blockIntro() {
-    font-size: inc_to_rem(2);
-    line-height: inc_to_rem(3);
-    margin: 0 auto inc_to_rem(4);
-    
-    @include mq(tablet) {
-        line-height: inc_to_rem(4);
-        margin-bottom: inc_to_rem(4);
-    }
-
-    @include mq(tablet-lg) {
-        max-width: 800px;
-    }
-
-    @include mq(desktop) {
-      font-size: inc_to_rem(3);
-      line-height: inc_to_rem(5);
-      margin-bottom: inc_to_rem(6);
-      max-width: 970px;
-    }
-
-    a:not([href^="tel:"]) { @include textLink; }
-    
-}
-
-
 //== Fade In Text
 
 @mixin fadeInUpText($delay: 0) {

@@ -8,23 +8,24 @@
 
 
   <style>
-    .masthead { background-image: url("<?php echo $mobileImage; ?>"); }
+    .masthead__bg { background-image: url("<?php echo $mobileImage; ?>"); }
     @media only screen and (min-width: 768px) {
-      .masthead { background-image: url("<?php echo $tabletImage; ?>"); }
+      .masthead__bg { background-image: url("<?php echo $tabletImage; ?>"); }
     }
     @media only screen and (min-width: 1024px) {
-      .masthead { background-image: url("<?php echo $desktopImage; ?>"); }
+      .masthead__bg { background-image: url("<?php echo $desktopImage; ?>"); }
     }
     @media only screen and (min-width: 2560px) {
-      .masthead { background-image: url("<?php echo $desktopLgImage; ?>"); }
+      .masthead__bg { background-image: url("<?php echo $desktopLgImage; ?>"); }
     }
   </style>
+
+  <?php /*
   <?php else : ?>
   <style>
-    /* .masthead { background-image: url("<?php echo get_option('masthead_fallback_image'); ?>"); } */
-    .masthead { background-image: url("https://picsum.photos/2560/400"); }
-    
+    .masthead { background-image: url("<?php echo get_option('masthead_fallback_image'); ?>"); }    
   </style>
+  */ ?>
   <?php endif; ?> 
   
 
@@ -50,4 +51,6 @@
     <?php endif; ?>
 
   </div>
+
+  <div class="masthead__bg"></div>
 </section>
