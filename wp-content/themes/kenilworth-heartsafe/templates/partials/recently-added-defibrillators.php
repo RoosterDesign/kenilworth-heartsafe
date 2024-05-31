@@ -1,5 +1,3 @@
-<?php $posts = get_posts(array( 'post_type' => 'defibrillators', 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC'));
-  if ($posts) { ?>
   <section class="block">
     <div class="container">
 
@@ -12,29 +10,21 @@
 
       <div class="card-list card-list--horizontal card-list--x4">
 
-      <?php foreach($posts as $post): setup_postdata($post); ?>
+      <?php $featured_posts = get_field('recently_added_defibrillators'); if( $featured_posts ): foreach( $featured_posts as $post ): ?>
         <div class="card">
           <div class="card__img">
-
           <?php if ( has_post_thumbnail() ) {
               the_post_thumbnail( 'card' );
           } else { ?>
             <img src="<?php echo get_template_directory_uri(); ?>/images/no-photo.png" alt="<?php the_title(); ?>" width="480" height="330" />
           <?php } ?>
-
-          
-            <!-- <img src="https://picsum.photos/340/200" title="Special Offer" class=" img-responsive" /> -->
           </div>
           <div class="card__content">
             <h2 class="card__title"><?php the_title(); ?></h2>
             <a href="<?php the_permalink(); ?>" class="btn btn--secondary" title="<?php the_title(); ?>">View more</a>
           </div>
         </div>
-      <?php endforeach; ?>
-
-   </div>
-
+      <?php endforeach; wp_reset_postdata(); endif; ?>
     </div>
-  </section>
-
-<?php }; wp_reset_postdata(); ?>
+  </div>
+</section>

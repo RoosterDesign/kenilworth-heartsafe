@@ -376,7 +376,7 @@ add_theme_support( 'post-thumbnails' );
 	
 if ( function_exists( 'add_theme_support' ) ) {	
 	
-	add_image_size( 'people-photo', 340, 340, true );	
+	add_image_size( 'people-photo', 340, 340, false );	
 	add_image_size( 'supporter-logo', 160, 180 );	
 	add_image_size( 'hero-slide-mobile', 768, 500, true );
 	add_image_size( 'hero-slide-desktop', 1920, 900, true );

@@ -1532,10 +1532,20 @@ body.home .site-header--sticky .burger span:after {
   height: 100%;
 }
 
+.supporters.owl-carousel .owl-stage {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .supporters.owl-carousel .owl-item img {
   height: auto;
   max-width: 100%;
   margin: 0 auto;
+  max-height: 60px;
   width: auto;
 }
 
@@ -1762,6 +1772,7 @@ body.home .site-header--sticky .burger span:after {
 .masthead {
   color: var(--white);
   height: var(--masthead-height);
+  overflow: hidden;
   padding-bottom: 20px;
   position: relative;
 }

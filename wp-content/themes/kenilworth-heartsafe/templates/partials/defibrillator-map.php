@@ -1,4 +1,4 @@
-<?php $posts = get_posts(array( 'post_type' => 'defibrillators', 'nopaging' => true, 'orderby' => 'date', 'order' => 'DESC' )); if ($posts) : ?>
+<?php $posts = get_posts(array( 'post_type' => 'defibrillators', 'nopaging' => true, 'orderby' => 'title', 'order' => 'ASC' )); if ($posts) : ?>
 
 <section class="defibrillator-map">
 

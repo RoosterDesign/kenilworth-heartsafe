@@ -32,7 +32,7 @@ function mobileNavToggle() {
 
 $(".supporters .owl-carousel").owlCarousel({
   // animateOut: 'fadeOut',
-  items: 2,
+  items: 3,
   autoplay: true,
   // lazyLoad: true,
   mouseDrag: true,
@@ -43,23 +43,21 @@ $(".supporters .owl-carousel").owlCarousel({
   nav: false,
   dots: true,
   responsive : {
-    480 : {
-      items: 3
-    },
     768 : {      
-      items: 4,
-      margin: 20      
+      items: 5,
+      margin: 30      
     },
     992 : {
-      items: 4,
-      nav: true 
+      items: 6,
+      margin: 30
     },
     1200 : {
-      items: 5,
+      items: 7,
+      margin: 30,
       nav: true
     },
     1920 : {
-      items: 7,
+      items: 8,
       margin: 30,
       nav: true
     }
