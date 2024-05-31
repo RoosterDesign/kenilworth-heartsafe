@@ -2061,7 +2061,7 @@ body.home .site-header--sticky .burger span:after {
 
 @media (min-width: 1280px) {
   .defibrillator-map__locations {
-    max-height: 505px;
+    max-height: 500px;
   }
 }
 
@@ -2552,7 +2552,9 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
 }
 
 .defibrillator-details__address {
+  font-size: var(--fs--base);
   grid-template-rows: auto;
+  line-height: var(--lh--base);
 }
 
 @media (min-width: 768px) {
@@ -2567,6 +2569,10 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
     grid-column: 2 / 3;
     grid-row: 2 / 3;
   }
+}
+
+.defibrillator-details__address.card p {
+  line-height: var(--lh--base);
 }
 
 .defibrillator-details__map {

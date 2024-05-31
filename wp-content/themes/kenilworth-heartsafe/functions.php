@@ -83,20 +83,9 @@ function kh_scripts() {
 
 
 	//== Google Map
-	if ( is_page_template( 'templates/homepage.php' )  ) {
+	if ( is_page_template( 'templates/homepage.php' ) || is_page_template( 'templates/defibrillators.php' )   ) {
 		wp_enqueue_script('kh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA&libraries=places', array(), '', true);
-		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-home-map.js', array('kh-google-maps'), _S_VERSION, true );
-	}
-
-
-	//== Contact Page Scripts
-	if ( is_page_template( 'templates/defibrillators.php' ) ) {
-
-		wp_enqueue_script('kh-google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCm3DQ6OjTssKzTWz7uIBS0CT_zEWCpHsA&libraries=places', array(), '', true);
-
-		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-locations-map.js', array('kh-google-maps'), _S_VERSION, true );
-
-		// wp_enqueue_script( 'kh-homepage', get_template_directory_uri() . '/js/contact.js', array(), _S_VERSION, true );
+		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-map.js', array('kh-google-maps'), _S_VERSION, true );
 	}
 
 }

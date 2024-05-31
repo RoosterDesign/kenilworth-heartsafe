@@ -1,4 +1,4 @@
-<?php $posts = get_posts(array( 'post_type' => 'defibrillators', 'nopaging' => true ));
+<?php $posts = get_posts(array( 'post_type' => 'defibrillators', 'posts_per_page' => 4, 'orderby' => 'date', 'order' => 'DESC'));
   if ($posts) { ?>
   <section class="block">
     <div class="container">

@@ -37,7 +37,9 @@
   }
 
   &__address {
+    font-size: var(--fs--base);
     grid-template-rows: auto;
+    line-height: var(--lh--base);
 
     @include mq(tablet) {
       grid-column: 2 / 3;
@@ -49,6 +51,10 @@
       grid-row: 2 / 3;
     }
 
+  }
+
+  &__address.card p {
+    line-height: var(--lh--base);
   }
 
   &__map {

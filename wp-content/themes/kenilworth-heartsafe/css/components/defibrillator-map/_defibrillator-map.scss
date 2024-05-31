@@ -84,7 +84,7 @@ body.page-template-defibrillators .defibrillator-map__panel {
     }
 
     @include mq(desktop) {
-      max-height: 505px;
+      max-height: 500px;
     }
 
     &::-webkit-scrollbar {
