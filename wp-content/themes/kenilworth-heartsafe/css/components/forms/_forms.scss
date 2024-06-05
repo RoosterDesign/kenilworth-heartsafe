@@ -209,10 +209,20 @@ html {
 
 @media only screen and (max-width: 767px) {
     
-  html .wpforms-container {
-      background: var(--white);
-      box-shadow: var(--card--box-shadow);
-      padding: 30px;
+  html {
+  
+    .wpforms-container {
+        background: var(--white);
+        box-shadow: var(--card--box-shadow);
+        padding: 30px;    
+
+      .wpforms-one-half {
+          margin-left: 0 !important;
+          width: 100% !important;
+      }
+
+    }
+
   }
   
 }

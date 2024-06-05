@@ -2382,6 +2382,10 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
             box-shadow: var(--card--box-shadow);
     padding: 30px;
   }
+  html .wpforms-container .wpforms-one-half {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
 }
 
 @media only screen and (max-width: 600px) {
