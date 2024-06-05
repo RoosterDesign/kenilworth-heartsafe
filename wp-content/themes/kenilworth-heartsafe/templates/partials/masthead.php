@@ -1,22 +1,14 @@
 <?php  wp_reset_postdata();
     if(has_post_thumbnail()) :
-    $mobileImage = get_the_post_thumbnail_url(get_the_ID(), 'fw-img-mobile');
-    $tabletImage = get_the_post_thumbnail_url(get_the_ID(), 'fw-img-tablet');
-    $desktopImage = get_the_post_thumbnail_url(get_the_ID(), 'fw-img-desktop');
-    $desktopLgImage = get_the_post_thumbnail_url(get_the_ID(), 'fw-img-desktop-lg');    
+    $mobileImage = get_the_post_thumbnail_url(get_the_ID(), 'masthead-mobile');
+    $desktopImage = get_the_post_thumbnail_url(get_the_ID(), 'masthead-desktop');   
   ?>
 
 
   <style>
     .masthead__bg { background-image: url("<?php echo $mobileImage; ?>"); }
-    @media only screen and (min-width: 768px) {
-      .masthead__bg { background-image: url("<?php echo $tabletImage; ?>"); }
-    }
-    @media only screen and (min-width: 1024px) {
+    @media only screen and (min-width: 1200px) {
       .masthead__bg { background-image: url("<?php echo $desktopImage; ?>"); }
-    }
-    @media only screen and (min-width: 2560px) {
-      .masthead__bg { background-image: url("<?php echo $desktopLgImage; ?>"); }
     }
   </style>
 

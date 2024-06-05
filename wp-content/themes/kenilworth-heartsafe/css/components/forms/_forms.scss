@@ -9,6 +9,15 @@
 
 html {
 
+  .js-form-other {
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+
+  }
+
   .wpforms-container {
     margin-top: 40px;
     margin-bottom: 60px;

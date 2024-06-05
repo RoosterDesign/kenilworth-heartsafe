@@ -88,6 +88,12 @@ function kh_scripts() {
 		wp_enqueue_script( 'kh-defibrillator-map', get_template_directory_uri() . '/js/defibrillator-map.js', array('kh-google-maps'), _S_VERSION, true );
 	}
 
+
+	//= Contact page 
+	if ( is_page_template( 'templates/contact.php' ) ) {
+		wp_enqueue_script( 'kh-contact', get_template_directory_uri() . '/js/contact.js', array('kh-jquery'), _S_VERSION, true );
+	}
+
 }
 
 add_action( 'wp_enqueue_scripts', 'kh_scripts' );
@@ -110,6 +116,15 @@ add_action( 'wpforms_wp_footer_end', 'wpf_dev_disable_scroll_effect_on_all_forms
 
 
 
+/**
+ * Show values in Dropdown, checkboxes, and Multiple Choice.
+ *
+ * @link https://wpforms.com/developers/add-field-values-for-dropdown-checkboxes-and-multiple-choice-fields/
+ */
+  
+ add_filter( 'wpforms_fields_show_options_setting', '__return_true' );
+
+
 
 //= Check if there is pagination
 
@@ -122,6 +137,11 @@ function is_paginated() {
 	}
 }
 
+
+
+
+//= Yeost
+add_theme_support( 'title-tag' );
 
 
 //== Custom Post Types
@@ -215,15 +235,16 @@ function create_posttype() {
 	$defibrillatorsArgs = array(
 		'labels'             => $defibrillatorsLabels,
 		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
+		// 'publicly_queryable' => true,
+		// 'show_ui'            => true,
+		// 'show_in_menu'       => true,
+		// 'query_var'          => true,
 		'rewrite'            => array('slug' => 'defibrillators', 'with_front' => false),
-		'capability_type'    => 'post',
-		'has_archive'        => true,
+		// 'capability_type'    => 'post',
+		'has_archive'        => false,
 		'menu_icon'   			 => 'dashicons-heart',
 		'hierarchical'       => false,
+		'show_in_rest' 			 => true,
 		'menu_position'      => 5,
 		'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
 	);
@@ -263,15 +284,16 @@ function create_posttype() {
 	$peopleArgs = array(
 		'labels'             => $peopleLabels,
 		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
+		// 'publicly_queryable' => true,
+		// 'show_ui'            => true,
+		// 'show_in_menu'       => true,
+		// 'query_var'          => true,
 		'rewrite'            => array('slug' => 'person', 'with_front' => false),		
-		'capability_type'    => 'post',
+		// 'capability_type'    => 'post',
 		'has_archive'        => true,
 		'menu_icon'   			 => 'dashicons-admin-users',
 		'hierarchical'       => false,
+		'show_in_rest' 			 => true,
 		'menu_position'      => 6,
 		'supports'           => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments'),
 	);
@@ -311,15 +333,16 @@ function create_posttype() {
 	$supporterArgs = array(
 		'labels'             => $supporterLabels,
 		'public'             => true,
-		'publicly_queryable' => true,
-		'show_ui'            => true,
-		'show_in_menu'       => true,
-		'query_var'          => true,
+		// 'publicly_queryable' => true,
+		// 'show_ui'            => true,
+		// 'show_in_menu'       => true,
+		// 'query_var'          => true,
 		'rewrite'            => array('slug' => 'supporter', 'with_front' => false),		
-		'capability_type'    => 'post',
+		// 'capability_type'    => 'post',
 		'has_archive'        => true,
 		'menu_icon'   			 => 'dashicons-tag',
 		'hierarchical'       => false,
+		'show_in_rest' 			 => true,
 		'menu_position'      => 7,
 		'supports'           => array('title', 'thumbnail'),
 	);
@@ -337,8 +360,8 @@ add_action( 'init', 'create_posttype' );
 function change_page_menu_classes($menu)
 {
   	
-		$DEFIBRILLATORS_MENU_ID = 18;// LOCAL
-		//  $DEFIBRILLATORS_MENU_ID = 2250; // STAGE
+		// $DEFIBRILLATORS_MENU_ID = 18;// LOCAL
+		$DEFIBRILLATORS_MENU_ID = 161; // STAGE
 		// $DEFIBRILLATORS_MENU_ID = ####; // PROD  
 	
 		global $post;
@@ -374,9 +397,8 @@ add_filter( 'intermediate_image_sizes_advanced', 'remove_default_image_sizes' );
 //== Post Thumbnails
 add_theme_support( 'post-thumbnails' );
 	
-if ( function_exists( 'add_theme_support' ) ) {	
-	
-	add_image_size( 'people-photo', 340, 340, false );	
+if ( function_exists( 'add_theme_support' ) ) {		
+	add_image_size( 'people-photo', 340, 340, true );	
 	add_image_size( 'supporter-logo', 160, 180 );	
 	add_image_size( 'hero-slide-mobile', 768, 500, true );
 	add_image_size( 'hero-slide-desktop', 1920, 900, true );
@@ -384,14 +406,7 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_image_size( 'masthead-mobile', 1024, 200, true );
 	add_image_size( 'masthead-desktop', 1920, 400, true );
 	add_image_size( 'about-panel', 1920, 600, true );
-	add_image_size( 'defibrillator-location', 610, 340, true );
-	
-	add_image_size( 'fw-img-mobile', 600, 600, true );
-	add_image_size( 'fw-img-tablet', 1024, 1024, true );
-	add_image_size( 'fw-img-desktop', 1920, 1920, true );
-	add_image_size( 'fw-img-desktop-lg', 2560, 2560, true );
-	// add_image_size( 'featured-post', 1600, 9999, true );
-	
+	add_image_size( 'defibrillator-location', 610, 340, true );	
 }
 
 
@@ -628,6 +643,7 @@ function awesome_page_create() {
 
 					<hr />					
 
+					<?php /*
 					<h2>Fallback Images</h2>
 
 					<div class="settingsGroup">
@@ -641,6 +657,7 @@ function awesome_page_create() {
 					</div>
 
 					<hr />
+					*/ ?>
 
 					<h2>Donate</h2>
 

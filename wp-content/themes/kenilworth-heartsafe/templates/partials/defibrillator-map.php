@@ -6,35 +6,25 @@
 
         <div class="defibrillator-map__panel">
 
-            
-            <?php
-                $url = rtrim($_SERVER['REQUEST_URI'], '/');
-                if ($url === '/defibrillators' || $url === '/defibrillators/') : ?>
-
-                    <!-- DEFIB PAGE -->
-                    <h2 class="h4">Locations</h2>                
-                    <ul class="defibrillator-map__locations">
-                        <?php foreach($posts as $post): setup_postdata($post); ?>
-                            <li>
-                                <a href="<?php the_permalink(); ?>" class="btn btn--secondary" title="<?php the_title(); ?>">
-                                    <?php the_title(); ?>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
-                    </ul>
-
-                <? else: ?>
-
-                <!-- HOMEPAGE -->
+            <?php if (is_page_template('templates/homepage.php')) : ?>                
                 <h2 class="h4">Find Local AEDs by Postcode</h2>
                 <form class="form defibrillator-map__form" id="postcodeForm">
                     <input type="text" id="postcode" placeholder="Enter postcode" class="form__input" required />
                     <button type="submit" class="btn btn--primary btn--no-icon">Search</button>
                 </form>
-                <a href="#" class="btn btn--secondary">View all Defibrillators</a> 
-
-            <?php endif; ?>
-            
+                <a href="/defibrillators" class="btn btn--secondary" title="View all Defibrillators">View all Defibrillators</a> 
+            <?php else: ?>
+                <h2 class="h4">Locations</h2>                
+                <ul class="defibrillator-map__locations">
+                    <?php foreach($posts as $post): setup_postdata($post); ?>
+                        <li>
+                            <a href="<?php the_permalink(); ?>" class="btn btn--secondary" title="<?php the_title(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>            
 
         </div>
 

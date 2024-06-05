@@ -2103,6 +2103,14 @@ body.home .site-header--sticky .burger span:after {
   margin-bottom: 30px;
 }
 
+html .js-form-other {
+  display: none;
+}
+
+html .js-form-other--visible {
+  display: block;
+}
+
 html .wpforms-container {
   margin-top: 40px;
   margin-bottom: 60px;
@@ -2527,6 +2535,7 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
+    gap: 0 40px;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 300px;
   }
@@ -2535,6 +2544,22 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
 @media (min-width: 1280px) {
   .defibrillator-details {
     grid-template-columns: 1fr 340px;
+  }
+}
+
+.defibrillator-details--no-img {
+  gap: 40px 0;
+}
+
+@media only screen and (max-width: 991px) {
+  .defibrillator-details--no-img {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .defibrillator-details--no-img {
+    gap: 0 40px;
   }
 }
 
@@ -2552,6 +2577,7 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
 @media (min-width: 992px) {
   .defibrillator-details__image {
     height: auto;
+    margin-bottom: 40px;
   }
 }
 
@@ -2570,15 +2596,25 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
 
 @media (min-width: 768px) {
   .defibrillator-details__address {
-    grid-column: 2 / 3;
     grid-row: 1 / 2;
   }
 }
 
 @media (min-width: 992px) {
   .defibrillator-details__address {
-    grid-column: 2 / 3;
     grid-row: 2 / 3;
+  }
+}
+
+@media (min-width: 768px) {
+  .defibrillator-details__address {
+    grid-column: 2 / 3;
+  }
+}
+
+@media (min-width: 992px) {
+  .defibrillator-details__address {
+    grid-column: 2 / 3;
   }
 }
 

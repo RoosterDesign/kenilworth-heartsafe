@@ -7,7 +7,7 @@
   <section class="block">
     <div class="container">
 
-        <div class="defibrillator-details">
+        <div class="defibrillator-details<?php if (!has_post_thumbnail()) { echo ' defibrillator-details--no-img' ;} ?>">
 
           <?php $location = get_field('map'); ?>
 

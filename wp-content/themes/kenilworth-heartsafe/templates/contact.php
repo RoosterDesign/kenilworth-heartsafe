@@ -3,31 +3,21 @@
 Template Name: Contact
 */
 ?>
-<?php get_header(); ?>
 
+<?php get_header(); ?>
 <div class="page">
-  
+
   <?php include get_theme_file_path("templates/partials/masthead.php"); ?>  
 
-  <div class="container">
+  <section class="block">
+    <div class="container">
+      <div class="page-content">
+        <?php the_content(); ?>
+      </div>
+    </div>      
+  </section>
 
-    <div class="page-content">      
-      <?php echo do_shortcode(get_field('form_id')); ?>
-    </div>
-
-    <div class="page-content">
-      <?php the_content(); ?>      
-    </div>
-    
-  </div>
-
-
-  <!-- Google Map -->
-  <div class="map">
-    <?php the_field('google_map_embed') ?>
-  </div>
-  <!-- end: Google Map -->
+  <?php include get_theme_file_path("templates/partials/supporters.php"); ?>
 
 </div>
-
 <?php get_footer(); ?>

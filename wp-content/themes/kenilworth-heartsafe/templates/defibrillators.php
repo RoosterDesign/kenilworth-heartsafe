@@ -5,8 +5,6 @@ Template Name: Defibrillators
 ?>
 <?php get_header(); ?>
 <div class="page">
-
-<?php echo $_SERVER['REQUEST_URI']; ?>
   
   <?php include get_theme_file_path("templates/partials/masthead.php"); ?>
 
