@@ -2650,6 +2650,24 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
   max-width: inherit !important;
 }
 
+.banner-alert {
+  background: var(--kh-red);
+  color: var(--white);
+  font-size: var(--fs--base);
+  font-weight: var(--fw--700);
+  margin: 0;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+@media (min-width: 2560px) {
+  .banner-alert {
+    font-size: var(--fs--p-large);
+    margin: 15px 0;
+  }
+}
+
 :root {
   --white: #fff;
   --black: #000;
@@ -2705,7 +2723,7 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
   --nav-link-colour: var(--darkGrey);
   --nav-link-hover-colour: var(--kh-red);
   --mobile-close-colour: var(--darkGrey);
-  --mobile-nav-mask: rgba(0,0,0,0.9);
+  --mobile-nav-mask: rgba(0, 0, 0, 0.9);
   --nav-padding: 40px;
   --masthead-height: 150px;
   --footer-bg: var(--darkGrey);
@@ -2713,8 +2731,8 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
   --footer-link-colour: var(--white);
   --footer-link-hover-colour: var(--accent);
   --card--bg: var(--white);
-  --card--box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  --card--box-shadow-hover: 0 15px 30px rgba(0,0,0,0.4);
+  --card--box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  --card--box-shadow-hover: 0 15px 30px rgba(0, 0, 0, 0.4);
   --card--padding: 30px 20px 20px;
   --block-padding: 50px;
   --contact-form-bg: var(--darkGrey);
@@ -2794,7 +2812,8 @@ html .wpforms-container .wpforms-field-container .wpforms-recaptcha-container la
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -2802,7 +2821,9 @@ html {
   font-size: 62.5%;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
@@ -2821,7 +2842,12 @@ body {
   padding-top: var(--header-height);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
@@ -2830,7 +2856,12 @@ strong {
   font-weight: var(--fw--700);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--fw--700);
   margin: 0;
 }
@@ -2874,7 +2905,10 @@ h6,
   text-transform: uppercase;
 }
 
-p, li, th, td {
+p,
+li,
+th,
+td {
   font-size: var(--fs--base);
   line-height: var(--lh--base);
   margin: 0;
